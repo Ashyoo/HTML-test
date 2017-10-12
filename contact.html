@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<title>Document</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./fonts/font_pwly8p8bnq0py14i/iconfont.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+
+<style>
+		*{margin:0;padding:0;list-style:none;text-decoration:none;}
+
+		.warp{
+			width:100%;
+			
+			
+		}
+/*****************************左边的一溜****************************/
+		.framesLeft{
+		    padding-top: 40px;
+		    padding-bottom: 40px;
+		    width: 15%;
+		    position: fixed;
+		    overflow-y: scroll;
+		    background: #e6e6e6;
+		}
+		.leftTopLogo{
+			margin:10px 55px;
+		}
+		.leftCenterNav ul li{
+			width:15%;
+			padding:20px 60px;
+
+		}
+		.leftCenterNav ul li a{
+			color: rgba(0, 0, 0, 0.5);
+		    letter-spacing: 0.1em;
+		    text-transform: uppercase;
+		    font-size: 15px;
+		    transition: 0.3s;
+		}
+		.leftCenterNav ul li a:after{
+			width: 50px;
+			content:"";
+			border:1px solid #7ac143;
+			position: absolute;  
+		    top: 175px;
+		    left: 68px;
+		    right: 10px;
+		}
+		.leftCenterNav ul li a:hover{
+			color:#000;
+			font-size:16px;
+		}
+		.framesLeft p{
+			width:89%;
+			margin:80px 17px 0px;
+			font-size:12px;
+			color:#777;
+		}
+		.framesLeft p i{
+			font-size:10px;
+			display:inline-block;
+			margin-top:35px;
+			margin-left:15px;
+			color:#474747;
+		}
+
+/****************************右边的一快****************************/
+
+	.rightTop{
+		width:85%;
+		height:800px;
+		margin-left:15%;
+	}
+	.pics{
+		width :100%;
+		height :100%;
+	}
+	.pics div{
+		width:25%;
+		height:25%;
+		overflow:hidden;
+		z-index: 1;	
+		float:left;
+		position:relative;
+	}
+	.pics div img{
+		max-width: 100%;
+		max-height: 100%;
+		transform:scale(1.5);
+		transition:0.9s;
+	}
+
+	.pics div:hover img{
+		transform:scale(1.3);
+	}
+	.pic>.overlay{
+		content="";
+		width:100%;
+		height:100%;
+		position:absolute;
+		top: 0;
+	    left: 0;
+		background:rgba(0,0,0,0.3);
+		visibility:hidden;
+		transition:0.5s;
+	}
+	.pics div:hover .overlay{
+		visibility:visible;	
+	}
+
+	.overlay h2{
+		color:#fff;
+		font-size:23px;
+		font-weight:700;
+		text-align:center;
+		margin-top:25%;
+		padding-bottom:5%;
+		font-family:"宋体";
+		transition:0.3s;
+	}
+	.overlay span{
+		color: rgba(255, 255, 255, 0.7);
+		letter-spacing: 3px;
+		font-size:13px;
+		margin-left:35%;
+		text-align:center;
+
+	}
+
+/*****************************右边中间***********************/
+
+		.rightCenter{
+			width:85%;
+			height:520px;
+			margin-left:15%;
+			padding-top:5%;
+			background-color: #fff;
+		}
+		.rightCenter>h1{
+			margin-left:5%;
+			margin-bottom:10%;
+		    /*margin-bottom: 20px;*/
+		    color: rgba(0, 0, 0, 0.8);
+		    letter-spacing: 3px;
+		}
+		.rightCenter-content{
+			width:45%;
+			padding:20px;
+			float:left;
+
+		}
+		.rightCenter-one{
+			padding:20px;	
+			float:left;
+		}
+		.iCon{
+			color: #7ac143;
+	    	font-size: 70px;
+	    	float:left;
+		}
+		.rightCenter-two{
+			width:80%;
+			padding-left:70px;
+			color:#808080;
+			font-size:20px;
+		}
+		.rightCenter-two>h3{
+			font-family:"宋体";
+			font-weight:300;
+			padding-bottom:20px;
+			font-size: 18px;
+    		letter-spacing: 0.2em;
+		}
+/***********************图片轮播*******************************/
+		.swiper{
+			width:85%;
+			margin-left:15%;
+		}
+		.swiper ul li img{
+			width:100%;
+		}
+/****************************计数器***********************/
+		.animated{
+			width:85%;
+			height:370px;
+			margin-left:15%;
+			padding:1px 0px;
+    		background-size:100%;
+		    background-attachment: fixed;
+		}
+		.counter{
+			width:33%;
+			float:left;
+			
+		}
+		.counter-top{
+			text-align: center;
+			font-size: 50px;
+		    display: block;
+		    color: #fff;
+		    font-family: "Roboto", Arial, sans-serif;
+		    height:50px;
+		    font-weight: 700;
+		    margin-bottom: 0.5em;
+		    margin-top: 40%;
+		}
+		.counter-lable{
+			color: #fff;
+		    text-transform: uppercase;
+		    font-size: 13px;
+		    font-family: "Merriweather", Times, serif;
+		    letter-spacing: 5px;
+		    margin-bottom: 2em;
+		    display: block;
+		    text-align: center;
+		}
+/*****************************最下面的字*************************/
+		.warp-bottom{
+			width:85%;
+			height:300px;
+			margin-left: 15%;
+			margin-top:80px;
+		}
+		.warp-bottom-h1{
+			color: #7ac143;	
+			font-family: "Merriweather", Times, serif;
+		    margin: 0 0 30px 100px;
+		}
+		.warp-bottom-p{
+			margin: 0 0 30px 100px;
+			font-size: 24px;
+    		line-height: 1.5;
+    		color:#808080;
+		}
+		.warp-bottom-btn{
+			width:100px;
+			height:40px;
+			color:#7ac143;
+			margin: 0 0 30px 100px;
+			border:2px solid #7ac143;
+			text-align:center;
+			line-height:40px;
+			border-radius: 20px;
+			transition:0.5s;
+		}
+		.warp-bottom-btn:hover{
+			background-color: #7ac143;
+			color:#fff;
+		}
+
+/***********************************响应式*********************/
+/*平板尺寸*/
+	@media screen and (max-width:1200px) and (min-width:721px){
+		.framesLeft{
+			width:30%;
+			padding-top: 30px;
+		    padding-bottom: 30px;
+		}
+		.leftTopLogo{
+			margin:10px 80px;
+		}
+		.leftCenterNav ul li{			
+			padding:10px 85px;
+		}
+		.leftCenterNav ul li a:after{
+			position: absolute;
+			left:93px;
+			top:155px;
+		}
+		.framesLeft p i{
+			margin-left:30px;
+		}
+		.rightTop{
+			width:70%;
+			height:600px;
+			margin-left:30%;
+		}
+		.rightCenter>h1{
+			margin-top:20%;
+		}
+		.pics div{
+			width:33.33%;
+			height:28%;
+		}
+		.rightCenter{
+			width:70%;
+			height:300px;
+			margin-left:30%;
+			margin-top:300px;
+		}
+		.rightCenter-content{
+			float:both;
+		}
+		.rightCenter-one{
+			width:200%;
+			height:15%;
+			padding:0px 20px 0px 0px;			
+		}
+		.rightCenter-two{
+			font-size:16px;
+		}
+		.swiper{
+			width:70%;
+			margin-left:30%;
+		}
+		.animated{
+			width:70%;
+			height:300px;
+			margin-left:30%;
+			
+		}
+		.warp-bottom{
+			width:70%;
+			height:250px;
+			margin-left: 30%;
+			margin-top:60px;
+		}
+		.warp-bottom-p{
+			font-size:18px;
+		}
+	}
+/*大手机尺寸*/
+	@media screen and (max-width:720px) and (min-width:480px){
+		.framesLeft{
+			display:none;
+			width:30%;
+			padding-top: 30px;
+		    padding-bottom: 30px;
+		}
+		.leftTopLogo{
+			margin:10px 80px;
+		}
+		.leftCenterNav ul li{			
+			padding:10px 85px;
+		}
+		.leftCenterNav ul li a:after{
+			position: absolute;
+			left:93px;
+			top:155px;
+		}
+		.framesLeft p i{
+			margin-left:30px;
+		}	
+		.rightTop{
+			width:100%;
+			height:600px;
+			margin-left: 0px;
+		}
+		.pics div{
+			width:50%;
+			height:36%;
+		}
+	
+		.rightCenter{
+			width:100%;
+			height:300px;
+			margin-left: 0px;
+			margin-top:300px;
+			clear:both;
+		}
+		.rightCenter-content{
+			clear:both;
+		}
+		.rightCenter-one{
+			width:200%;
+			height:15%;
+			padding:0px 20px 0px 0px;			
+		}
+		.rightCenter-two{
+			font-size:16px;
+
+		}
+		.swiper{
+			width:100%;
+			
+			margin-left:0px;
+		}
+
+		.animated{
+			width:100%;
+			height:300px;
+			margin-left: 0px;		
+		}
+		.warp-bottom{
+			width:100%;
+			height:250px;
+			margin-top:60px;
+			margin-left: 0px;
+		}
+		.warp-bottom-p{
+			margin-left: 10px;
+			font-size:18px;
+		}
+		.warp-bottom-h1{
+			margin: 0 0 30px 10px;
+		}
+		.warp-bottom-btn{
+			margin: 0 0 30px 10px;
+		}
+	}
+/*小手机尺寸*/
+	@media screen and (max-width:479px){
+		.framesLeft{
+			display:none;
+			width:30%;
+			padding-top: 30px;
+		    padding-bottom: 30px;
+		}
+		.leftTopLogo{
+			margin:10px 80px;
+		}
+		.leftCenterNav ul li{			
+			padding:10px 85px;
+		}
+		.leftCenterNav ul li a:after{
+			position: absolute;
+			left:93px;
+			top:155px;
+		}
+		.framesLeft p i{
+			margin-left:30px;
+		}	
+		.rightTop{
+			width:100%;
+			height:600px;
+			margin-left: 0px;
+		}
+		.pics div{
+			width:100%;
+			height:50%;
+		}
+		.rightCenter{
+			width:100%;
+			height:300px;
+			margin-left: 0px;
+			margin-top:300px;
+			clear:both;
+		}
+		.rightCenter-content{
+			clear:both;
+		}
+		.rightCenter-one{
+			width:200%;
+			height:15%;
+			padding:0px 20px 0px 0px;			
+		}
+		.rightCenter-two{
+			font-size:16px;
+
+		}
+		.swiper{
+			width:100%;
+			
+			margin-left:0px;
+		}
+
+		.animated{
+			width:100%;
+			height:500px;
+			margin-left: 0px;	
+
+		}
+		.counter{
+			clear:both;
+			margin-left:140px;
+		}
+		.warp-bottom{
+			width:100%;
+			height:250px;
+			margin-top:60px;
+			margin-left: 0px;
+		}
+		.warp-bottom-p{
+			margin-left: 10px;
+			font-size:18px;
+		}
+		.warp-bottom-h1{
+			margin: 0 0 30px 10px;
+		}
+		.warp-bottom-btn{
+			margin: 0 0 30px 10px;
+		}
+	}
+
+</style>
+
+
+</head>
+<body>
+<div class="warp">
+<!-- 左边的一溜 -->
+	<aside role="complementary" class="framesLeft" style="height:100%;">
+		<div class="leftTopLogo">
+			<a href="">
+				<img src="./images/logo-colored.png" alt="">
+			</a>
+		</div>
+		<nav class="leftCenterNav">
+			<ul>
+				<li><a href="" style="padding-left:8px;">HOME</a></li>
+				<li><a href="">PHOTOS</a></li>
+				<li><a href="" style="padding-left:8px;">ABOUT</a></li>
+				<li><a href="">CONTACT</a></li>
+			</ul>
+			
+		</nav>
+		<p>
+			© 2016 Blend Free HTML5. All Rights Reserved. More Templates <br>
+			<i class="iconfont icon-facebook"></i>
+			<i class="iconfont icon-twitter"></i>
+			<i class="iconfont icon-instagram"></i>
+			<i class="iconfont icon-linkedin"></i>
+		</p>
+			
+	</aside>
+
+<!-- 右边上面的一块 -->
+	<div class="rightTop">
+		<div class="pics">
+			<div class="pic">
+				<img src="./images/work_1.jpg" alt="">
+				<div class="overlay">
+					<h2>Nature</h2>
+					<span>14 Photos</span>
+				</div>	
+			</div>
+			<div class="pic">
+				<img src="./images/work_2.jpg" alt="">
+				<div class="overlay">
+					<h2>People</h2>
+					<span>7 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_3.jpg" alt="">
+				<div class="overlay">
+					<h2>Sky</h2>
+					<span>22 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_4.jpg" alt="">
+				<div class="overlay">
+					<h2>Building</h2>
+					<span>28 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_5.jpg" alt="">
+				<div class="overlay">
+					<h2>郑国</h2>
+					<span>17 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_6.jpg" alt="">
+				<div class="overlay">
+					<h2>Beach</h2>
+					<span>34 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_7.jpg" alt="">
+				<div class="overlay">
+					<h2>Vegetarian Food</h2>
+					<span>10 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_8.jpg" alt="">
+				<div class="overlay">
+					<h2>Travel</h2>
+					<span>19 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_9.jpg" alt="">
+				<div class="overlay">
+					<h2>Family</h2>
+					<span>22 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_10.jpg" alt="">
+				<div class="overlay">
+					<h2>Food</h2>
+					<span>10 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_11.jpg" alt="">
+				<div class="overlay">
+					<h2>Gadgets</h2>
+					<span>76 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_12.jpg" alt="">
+				<div class="overlay">
+					<h2>Cars</h2>
+					<span>55 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_13.jpg" alt="">
+				<div class="overlay">
+					<h2>Animals</h2>
+					<span>47 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_14.jpg" alt="">
+				<div class="overlay">
+					<h2>Building</h2>
+					<span>10 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_15.jpg" alt="">
+				<div class="overlay">
+					<h2>Baloon</h2>
+					<span>17 Photos</span>
+				</div>
+			</div>
+			<div class="pic">
+				<img src="./images/work_16.jpg" alt="">
+				<div class="overlay">
+					<h2>Animals 2</h2>
+					<span>22 Photos</span>
+				</div>
+			</div>
+
+			
+
+		</div>
+	</div>
+
+<!-- 右边中间的一块 -->
+	<div class="rightCenter" style="display:none;">
+	<h1>Services</h1>
+		<div class="rightCenter-content">
+			
+			<div class="rightCenter-one">
+				<div class="iCon">
+					<i class="icon-strategy"></i>
+				</div>
+				<div class="rightCenter-two">
+					<h3>STRATEGY</h3>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="rightCenter-content">
+
+			<div class="rightCenter-one">
+				<div class="iCon">
+					<i class="icon-telescope"></i>
+				</div>
+				<div class="rightCenter-two">
+					<h3>EXPLORE</h3>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="rightCenter-content">
+
+			<div class="rightCenter-one">
+				<div class="iCon">
+					<i class="icon-circle-compass"></i>
+				</div>
+				<div class="rightCenter-two">
+					<h3>DIRECTION</h3>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="rightCenter-content">
+
+			<div class="rightCenter-one">
+				<div class="iCon">
+					<i class="icon-tools-2"></i>
+				</div>
+				<div class="rightCenter-two">
+					<h3>EXPERTISE</h3>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- 右边下边的一块 -->
+	<div class="swiper" style="display:none">
+		<ul>
+			<li style="display:block"><img src="./images/170253.png" alt=""></li>
+			<li style="display:none"><img src="./images/170505.png" alt=""></li>
+			<li style="display:none"><img src="./images/170525.png" alt=""></li>
+		</ul>
+	</div>
+<!-- 计时器 -->
+	<div class="animated" style="background-image:url(./images/hero111.jpg);background-position:0% 20%;display:none;">
+		<div>
+			<div class="counter">
+				<span class="counter-top" data-id="0" >0</span>
+				<span class="counter-lable">CLIENT</span>
+			</div>
+			<div class="counter">
+				<span class="counter-top" data-id="0">130</span>
+				<span class="counter-lable">PHOTOS</span>
+			</div>
+			<div class="counter">
+				<span class="counter-top" data-id="0">27232</span>
+				<span class="counter-lable">PIXELS</span>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="warp-bottom" style="display:none;">
+		<div class="warp-bottom-h1">
+			<h1>Get in touch</h1>
+		</div>
+		<div class="warp-bottom-p">
+			<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+			
+		</div>
+		<a href="#"><div class="warp-bottom-btn">Leam more</div></a>
+	</div>
+</div>
+</body>
+</html>
+<script>
+	// ***************轮播*************************	
+	var index = 0;
+	setInterval(function(){
+		
+		$('.swiper>ul>li').eq(index).css('display','none');
+		index++;
+		if (index > 2) {
+                index = 0;
+            }
+		$('.swiper>ul>li').eq(index).css('display','block');
+	},3000)
+	// *******************计时器************
+	
+	var runOne = 0;
+	var timerOne = setInterval(function(){
+		
+		runOne++;
+		$('.counter-top').eq(0).html(runOne);
+		if(runOne>66){
+			clearInterval(timerOne);
+		}
+		
+	},40)
+
+	var runTwo = 0;
+	var timerTwo = setInterval(function(){
+		
+		runTwo++;
+		$('.counter-top').eq(1).html(runTwo);
+		if(runTwo>129){
+			clearInterval(timerTwo);
+			
+		}
+		
+	},20)
+
+	var runThree = 0;
+	var timerThree = setInterval(function(){
+		
+		runThree+=50;
+		$('.counter-top').eq(2).html(runThree);
+		if(runThree>27321){
+			clearInterval(timerThree);
+		}
+		
+	},5)
+// *********************判断鼠标滚轮位置***************************
+	// console.log(document.body.scrollTop);
+	$(window).scroll(function(){
+		if(document.body.scrollTop>100){
+			$('.rightCenter').show();	
+		}
+		if(document.body.scrollTop>400){
+			$('.swiper').css('display','block');	
+		}
+		if(document.body.scrollTop>600){
+			$('.animated').css('display','block');		
+		}
+		if(document.body.scrollTop>800){
+			$('.warp-bottom').show();		
+		}
+	})
+
+</script>
